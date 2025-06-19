@@ -1,0 +1,118 @@
+SkyReaperPassGest/
+├── main.py                    # Arranque principal de la app
+├── requirements.txt           # Dependencias pip
+├── README.md                  # Explicación del proyecto
+│
+├── logic/                     # Lógica principal del gestor
+│   ├── auth.py                # Autenticación y verificación de contraseña maestra
+│   ├── crypto_utils.py        # Cifrado y descifrado (con cryptography)
+│   ├── database.py            # Guardar, leer y borrar contraseñas (archivo JSON)
+│   ├── generator.py           # Generador de contraseñas aleatorias
+│
+├── ui/                        # Interfaz gráfica (pantallas Textual)
+│   ├── screens/
+│   │   ├── auth_screen.py     # Login de contraseña maestra
+│   │   ├── main_menu.py       # Menú principal (botones)
+│   │   ├── save_screen.py     # Guardar nueva contraseña
+│   │   ├── view_screen.py     # Ver contraseñas guardadas
+│   │   ├── delete_screen.py   # Eliminar contraseña
+│   │   └── generate_screen.py # Generar y guardar contraseña aleatoria
+│   └── styles/
+│       ├── default.css        # Estilo básico
+│       ├── matrix.css         # Tema estilo Matrix
+│       ├── military.css       # Tema estilo militar
+│       └── cyberpunk.css      # Tema estilo cyberpunk
+│
+└── utils/
+    └── file_utils.py          # Lectura y escritura segura de archivos
+
+----------------------------------------------------------------------------------
+🔄 Flujo General del Programa
+Inicio (main.py)
+
+Carga Textual App.
+
+Aplica estilo CSS deseado.
+
+Muestra pantalla de autenticación (AuthScreen).
+
+Pantalla de Autenticación
+
+El usuario introduce la contraseña maestra.
+
+Se valida con auth.py (usando hashlib).
+
+Si es válida, pasa al menú principal.
+
+Menú Principal (MainMenu)
+
+Botones: Guardar, Ver, Eliminar, Generar Contraseña, Salir.
+
+Cada botón abre su pantalla:
+
+Guardar: Formulario y lógica de cifrado → save_screen.py
+
+Ver: Lista contraseñas descifradas → view_screen.py
+
+Eliminar: Selección y eliminación → delete_screen.py
+
+Generar: Selección de longitud → genera y guarda → generate_screen.py
+
+🔐 Seguridad
+Contraseña maestra almacenada como hash con hashlib + salt.
+
+Contraseñas de servicios cifradas con cryptography y clave derivada de la maestra.
+
+Archivo de contraseñas protegido (data/passwords.json cifrado).
+
+✅ Siguiente paso sugerido
+Empezar creando la estructura de carpetas y archivos, luego:
+
+Paso 1: Autenticación (Pantalla + Lógica)
+
+Crear auth.py en logic/
+
+Crear auth_screen.py en ui/screens/
+
+Hacer que main.py muestre esta pantalla primero.
+
+
+
+
+
+En auth hicimos que se guarde contraseña en appdata. 10/6/25
+
+
+------------------------------------------------------------
+📂 Organización recomendada
+logic/
+
+auth.py
+
+setup.py → contiene is_first_time_setup()
+
+ui/screens/
+
+auth_screen.py
+
+first_login_screen.py
+
+main_menu_screen.py
+
+ui/styles/default.css
+
+
+-----------------------------------------------------------
+Empezamos con el archivo de cifrado 11/6/25 se llamara crypto.py y vault.py
+
+Revision logica
+Revisado auth.py
+Revisado config.py
+Revisado crypto.py
+Revisado delete.py
+Revisado save.py
+Revisado setup.py
+Revisado sync.py
+Revisado vault.py
+
+Revision Screens
